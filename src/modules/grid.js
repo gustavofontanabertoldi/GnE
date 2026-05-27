@@ -5,7 +5,7 @@ export function gridInitializer(camada) {
     for (let x = 0; x < 3000; x += 50) {
         const linha = new Konva.Line({
             points: [x, 0, x, 3000],
-            stroke: 'rgba(0, 0, 0, 0.08)',
+            stroke: 'rgba(0, 0, 0, 0.48)',
             strokeWidth: 1
         });
         camada.add(linha);
@@ -15,7 +15,7 @@ export function gridInitializer(camada) {
     for (let y = 0; y < 3000; y += 50) {
         const linha = new Konva.Line({
             points: [0, y, 3000, y],
-            stroke: 'rgba(0, 0, 0, 0.08)',
+            stroke: 'rgba(0, 0, 0, 0.48)',
             strokeWidth: 1
         });
         camada.add(linha);

@@ -17,28 +17,47 @@ body, html {
   z-index: 1; /* Fica atrás do menu */
 }
 
-#menu-lateral {
+/* Nova barra superior fina que cruza a tela toda */
+#toolbar-superior {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Bem fina para dar espaço ao grid */
   background: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 10; /* Fica por cima do tabuleiro */
+  
+  /* Alinha tudo na horizontal e centraliza verticalmente */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* Título de um lado, botões do outro */
+}
+
+#toolbar-superior h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Envelopa os botões para ficarem lado a lado */
+.grupo-botoes {
+  display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
 button {
-  padding: 8px 12px;
+  padding: 6px 12px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 13px;
 }
 
 button:hover {

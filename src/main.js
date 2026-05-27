@@ -1,7 +1,7 @@
 import Konva from 'konva';
 import {gridInitializer} from './modules/grid.js'
 import { cameraInitializer } from './modules/camera.js';
-import {add_token} from './modules/input.js'
+import {token_adm} from './modules/input.js'
 
 const stage = new Konva.Stage({
   container: 'tabuleiro',
@@ -15,5 +15,5 @@ const camadaMundo = new Konva.Layer();
 stage.add(camadaMundo);
 
 gridInitializer(camadaMundo)
-add_token(camadaMundo)
+token_adm(camadaMundo)
 camadaMundo.draw()
