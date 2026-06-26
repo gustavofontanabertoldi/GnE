@@ -36,29 +36,30 @@ export function token_adm(layer){
 
 export function map_adm(layer){
     let button = document.getElementById('btn-add-mapa');
-    let inputArqv  = document.getElementById("input-arquivo-mapa");
+    let inputArqv  = document.getElementById("input-arquivo-mapa"); // pega o input que já existe no HTML
     let active_map = null;
+
     button.addEventListener('click', () => {
-        inputArqv.click();
+        inputArqv.click(); // Quando o usuário clica de fato no botão, ele executa o click para abrir os arquivos
     })
     inputArqv.addEventListener("change", (e) => {
-            const imgElement = new Image();
-            let arquivo = e.target.files[0];
-            imgElement.src = URL.createObjectURL(arquivo);
-            imgElement.onload = () => {
-                const mapa = new Konva.Image({
-                    image: imgElement, // <-- Passa o elemento HTML que acabou de carregar
-                    x: window.innerWidth/4,
-                    y: window.innerHeight/4,
-                    width: 800,        // Largura inicial do mapa
-                    height: 600,       // Altura inicial do mapa
-                    draggable: false   // O mapa NÃO deve ser arrastável, quem arrasta é o stage!
-                });
-                active_map = mapa;
-                layer.add(active_map);
-                layer.draw();
-            }
-        })
+        const imgElement = new Image();
+        let arquivo = e.target.files[0];
+        imgElement.src = URL.createObjectURL(arquivo);
+        imgElement.onload = () => {
+            const mapa = new Konva.Image({
+                image: imgElement, // Passa o elemento HTML que acabou de carregar
+                x: window.innerWidth/4,
+                y: window.innerHeight/4,
+                width: 800,        // Largura inicial do mapa
+                height: 600,       // Altura inicial do mapa
+                draggable: false   // O mapa NÃO deve ser arrastável, quem arrasta é o stage!
+            });
+            active_map = mapa;
+            layer.add(active_map);
+            layer.draw();
+        }
+    })
 
     let btn_rmv = document.getElementById("btn-rmv-mapa");
     btn_rmv.addEventListener("click", () => {
